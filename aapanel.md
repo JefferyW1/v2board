@@ -103,6 +103,7 @@ cp /www/server/php/81/etc/php.ini cli-php.ini
 
 sed -i 's/^disable_functions[[:space:]]*=[[:space:]]*.*/disable_functions=header,header_remove,headers_sent,http_response_code,setcookie,session_create_id,session_id,session_name,session_save_path,session_status,session_start,session_write_close,session_regenerate_id,set_time_limit/g' cli-php.ini
 
+改为disable_functions=header,header_remove,headers_sent,headers_list,http_response_code,setcookie,session_create_id,session_id,session_name,session_save_path,session_status,session_start,session_write_close,session_regenerate_id,session_unset,session_get_cookie_params,session_set_cookie_params,set_time_limit
 ```
 2. 添加守护进程
 >下面以aaPanel中supervisor服务来守护队列服务作为演示。  
@@ -110,7 +111,7 @@ sed -i 's/^disable_functions[[:space:]]*=[[:space:]]*.*/disable_functions=header
 - 2️⃣. 找到Supervisor进行安装，安装完成后点击设置 > Add Daemon按照如下填写
 - - 在 Name 填写 webman
 - - 在 Run User 选择 www  
-- - 在 Run Dir 选择 站点目录 在 Start Command 填写 ```/www/server/php/81/bin/php -c cli-php.ini webman.php start``` 在 Processes 填写 1  
+- - 在 Run Dir 选择 站点目录 在 Start Command 填写 ```/www/server/php/81(实际php)/bin/php -c cli-php.ini webman.php start``` 在 Processes 填写 1  
 >填写后点击Confirm添加即可运行。
 
 3. 修改伪静态
@@ -121,7 +122,7 @@ location ~* \.(jpg|jpeg|png|gif|js|css|svg|woff2|woff|ttf|eot|wasm|json|ico)$ {
 
 }
 location ~ .* {
-        proxy_pass http://127.0.0.1:7010;
+        proxy_pass http://127.0.0.1:7010;(查看实际端口号)
         proxy_http_version 1.1;
         proxy_set_header Connection "";
         proxy_set_header X-Real-IP $remote_addr;
