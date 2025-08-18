@@ -3,7 +3,7 @@
  - [修改版V2bX](https://github.com/wyx2685/V2bX)
 
 ## 环境要求
-Nginx 1.2.2 ☑️ MySQL 5.7 ☑️ PHP 8.1+  ☑️ phpmyadmin-5.2
+Nginx 1.2.2 ☑️ MySQL 5.7 ☑️ PHP 8.2+  ☑️ phpmyadmin-5.2
 
 php必备插件  Install extentions > 
 - redis
