@@ -1,4 +1,4 @@
-# v2board安装教程  2024年最新v2board安装教程
+# v2board安装教程  2025年最新v2board安装教程
 本教程是基于@wyx2685 的v2board ，支持webman后的版本。 
 https://github.com/wyx2685/v2board/
 
@@ -10,7 +10,7 @@ https://github.com/wyx2685/v2board/
 ## 安装完成后登录宝塔，选择安装如下
 ☑️ Nginx 1.2.2
 ☑️ MySQL 5.7
-☑️ PHP 8.1
+☑️ PHP 8.2 +
 ☑️ phpmyadmin-5.2
 
 ![image](https://github.com/vlesstop/xiaoV2b/assets/48223192/f069014e-5595-4ea9-8695-600bc04845b3) 
