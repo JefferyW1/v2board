@@ -70,8 +70,24 @@ https://github.com/wyx2685/v2board/
 返回到宝塔页面， 选择网站， 点击 网站名，选择网站目录
 ![image](https://github.com/vlesstop/xiaoV2b/assets/48223192/eed3dafa-d85e-42a5-b625-5f6d746fbbb3)
 
+## 不启用webman
+```
+location /downloads {
+}
 
-## 然后选择伪静态，填写以下内容
+location / {  
+    try_files $uri $uri/ /index.php$is_args$query_string;  
+}
+
+location ~ .*\.(js|css)?$
+{
+    expires      1h;
+    error_log off;
+    access_log /dev/null; 
+}
+```
+
+## 伪静态(启用webman)，填写以下内容；启用webman性能更好
 ```
 location /downloads {
 }
